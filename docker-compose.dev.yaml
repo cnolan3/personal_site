@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  fontend:
+    build:
+      context: angular-src 
+      dockerfile: Dockerfile
+    volumes:
+      - ./angular-src:/usr/src/app
+    ports:
+      - "4200:4200"
+  
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/usr/src/app
+    links:
+      - database
+  
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
