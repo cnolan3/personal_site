@@ -1,8 +1,15 @@
-// create db with dummy data
-db_s = db.getSiblingDB("sitedb");
-db_s.article.drop();
+#!/bin/bash
+set -e
 
-db_s.article.save( {
+mongo <<EOF
+sitedb = "${SITE_DB_NAME}"
+devuser = "${DEV_USERNAME}"
+devpass = "${DEV_PASSWORD}"
+
+use $SITE_DB_NAME
+
+# create db using dummy data
+db.article.save({
     title : "this is my title" , 
     author : "bob" , 
     posted : new Date(1079895594000) , 
@@ -13,18 +20,19 @@ db_s.article.save( {
         { author :"sam" , text : "this is bad" } 
     ],
     other : { foo : 5 }
-});
+})
 
-// create a user for sitedb
-db_s.createUser(
+# create a user for sitedb
+db.createUser(
     {
-        user : "devuser",
-        pwd : "pass",
+        user : devuser,
+        pwd : devpass,
         roles : [
             {
                 role : "readWrite",
-                db : "sitedb"
+                db : sitedb
             }
         ]
     }
-);
+)
+EOF
