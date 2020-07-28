@@ -14,6 +14,10 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    environment:
+      SITE_DB_NAME: "sitedb"
+      DEV_USERNAME: "devuser"
+      DEV_PASSWORD: "pass"
     ports:
       - "4000:4000"
     volumes:

@@ -6,16 +6,21 @@ let express = require('express'),
     dbConfig = require('./database/db');
 
 // connecting with mongo db
+console.log(dbConfig.db);
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {
-    useNewUrlParser: true
-}).then(() => {
-        console.log('Database successfully connected');
-    },
-    error => {
-        console.log('Database could not be connected: ' + error);
-    }
-);
+var connectWithRetry = function() {
+    return mongoose.connect(dbConfig.db, {
+        useNewUrlParser: true
+    }).then(() => {
+            console.log('Database successfully connected');
+        },
+        error => {
+            console.log('Database could not be connected: ' + error);
+            setTimeout(connectWithRetry, 5000);
+        }
+    );
+}
+connectWithRetry();
 
 // setting up passport with express js
 const app = express();
