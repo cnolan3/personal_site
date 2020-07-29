@@ -13,7 +13,7 @@ services:
   backend:
     build:
       context: backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     environment:
       SITE_DB_NAME: "sitedb"
       DEV_USERNAME: "devuser"

@@ -16,6 +16,17 @@ blogPostRoute.route('/create').post((req, res, next) => {
     })
 })
 
+// get all blog posts
+blogPostRoute.route('/').get((req, res) => {
+    blogPost.find((error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
+})
+
 // get single blog post
 blogPostRoute.route('/get/:id').get((req, res) => {
     blogPost.findById(req.params.id, (error, data) => {

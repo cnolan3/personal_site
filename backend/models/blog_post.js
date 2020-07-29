@@ -13,4 +13,8 @@ let BlogPost = new Schema({
     date: {
         type: Date
     }
+}, {
+    collection: 'BlogPosts'
 })
+
+module.exports = mongoose.model('BlogPost', BlogPost)
