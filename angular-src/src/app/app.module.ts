@@ -9,6 +9,8 @@ import { PostCreateComponent } from './components/post-create/post-create.compon
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostComponent } from './components/post/post.component';
 
+import { PostApiService } from './service/post-api.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { PostComponent } from './components/post/post.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PostApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
