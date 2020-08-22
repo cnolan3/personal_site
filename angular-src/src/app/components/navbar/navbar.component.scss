@@ -1,0 +1,19 @@
+.navbar {
+    -webkit-transition:padding 0.2s ease;
+    -moz-trasition:padding 0.2s ease;
+    -o-transition:padding 0.2s ease;
+    transition:padding 0.2s ease;
+}
+
+.affix {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+    -webkit-transition:padding 0.2s linear;
+    -moz-transition:padding 0.2s linear;
+    -o-transition:padding 0.2s linear;
+    transition:padding 0.2s linear;
+}
+
+section {
+    min-height:calc(100% - 70px);
+}
