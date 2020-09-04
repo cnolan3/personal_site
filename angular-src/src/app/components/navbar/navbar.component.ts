@@ -14,12 +14,12 @@ import {
   animations: [
       trigger('hide', [
           state('visible', style({
-              opacity: 1,
-              height: '4pc'
+              'background-color': '#343a40',
+              'height': '4pc'
           })),
           state('hidden', style({
-              opacity: 0.1,
-              height: '3pc'
+              'background-color': 'transparent',
+              'height': '3pc'
           })),
           transition('visible <=> hidden', [
               animate('0.3s')
@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) onScroll($event) {
-      if (window.pageYOffset > 200) {
+      if (window.pageYOffset > 150) {
           this.faded = true;
       }
       else {
