@@ -2,8 +2,10 @@
   <div [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
     <div class="row">
       <div class="col-1">
-        <button (click)="toggle()" class="navbar-toggler center" type="button">
-          <span class="navbar-toggler-icon"></span>
+        <button (click)="toggle()" class="hamburger hamburger--squeeze center" type="button" #menubutton>
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
         </button>
       </div>
       <div *ngIf="maximized" class="col">
