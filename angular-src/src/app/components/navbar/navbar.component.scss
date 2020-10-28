@@ -7,9 +7,9 @@
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    left: 2px;
+    top: 10px;
 }
 
 .navbar-toggler-icon {
