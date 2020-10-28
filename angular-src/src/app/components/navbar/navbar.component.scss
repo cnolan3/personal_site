@@ -1,19 +1,17 @@
-.navbar {
-    -webkit-transition:padding 0.2s ease;
-    -moz-trasition:padding 0.2s ease;
-    -o-transition:padding 0.2s ease;
-    transition:padding 0.2s ease;
+.dot {
+    height: 60px;
+    width: 60px;
+    background-color: #dd5100;
+    border-radius: 30px;
+    display: inline-block;
 }
 
-.affix {
-    padding-top: 0.2em !important;
-    padding-bottom: 0.2em !important;
-    -webkit-transition:padding 0.2s linear;
-    -moz-transition:padding 0.2s linear;
-    -o-transition:padding 0.2s linear;
-    transition:padding 0.2s linear;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-section {
-    min-height:calc(100% - 70px);
+.navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger7.svg?color=FFFFFF');
 }

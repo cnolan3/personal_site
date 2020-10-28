@@ -4,7 +4,10 @@ import {
     state,
     style,
     animate,
-    transition
+    transition,
+    keyframes,
+    query,
+    group
 } from '@angular/animations';
 
 @Component({
@@ -12,35 +15,57 @@ import {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   animations: [
-      trigger('hide', [
-          state('visible', style({
-              'background-color': '#343a40',
-              'height': '4pc'
+      trigger('expand', [
+          state('minimized', style({
+              height: '60px',
+              width: '60px',
           })),
-          state('hidden', style({
-              'background-color': 'transparent',
-              'height': '3pc'
+          state('maximized', style({
+              height: '300px',
+              width: '70%',
           })),
-          transition('visible <=> hidden', [
-              animate('0.3s')
+          transition('minimized => maximized', [
+            group([
+              animate('1s ease-in-out', keyframes([
+                style({ width: '70%', offset: 0.3 }),
+                style({ height: '300px', offset: 1.0 })
+              ])),
+              query(':enter', [
+                style({ opacity: '0', height: '0px' }),
+                animate('1s', keyframes([
+                  style({ opacity: '0', height: '0px', offset: 0.4 }),
+                  style({ opacity: '1', height: '100%', offset: 1 })
+                ]))
+              ])
+            ])
+          ]),
+          transition('maximized => minimized', [
+            group([
+              animate('1s ease-in-out', keyframes([
+                style({ height: '60px', offset: 0.5 }),
+                style({ width: '60px', offset: 1.0 }),
+              ])),
+              query(':leave', [
+                animate('1s', keyframes([
+                  style({ opacity: '0', offset: 0.5}),
+                  style({ opacity: '0', offset: 1})
+                ]))
+              ])
+            ])
           ])
       ]),
   ]
 })
+
 export class NavbarComponent implements OnInit {
 
   constructor() { }
-  faded : boolean = false;
+  maximized : boolean = false;
 
   ngOnInit(): void {
   }
-
-  @HostListener('window:scroll', ['$event']) onScroll($event) {
-      if (window.pageYOffset > 150) {
-          this.faded = true;
-      }
-      else {
-          this.faded = false;
-      }
+  
+  toggle(): void {
+      this.maximized = !this.maximized;
   }
 }

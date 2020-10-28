@@ -1,18 +1,14 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark py-3" data-toggle="affix" [@hide]="faded ? 'hidden' : 'visible'">
-  <a class="navbar-toggler navbar-toggler-right" data-toggle=".navbar-collapse"></a>
-  <a class="navbar-brand" routerLink="/">
-    cnolandev
-  </a>
-
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 1</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">Item 2</a>
-      </li>
-    </ul>
+<div style="width: 100%;">
+  <div [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
+    <div class="row">
+      <div class="col-sm-2">
+        <button (click)="toggle()" class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div *ngIf="maximized" class="col">
+        <p>aaaaaa</p>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
