@@ -24,12 +24,12 @@ import { viewClassName } from '@angular/compiler';
           })),
           state('maximized', style({
               height: '300px',
-              width: '70%',
+              width: '100%',
           })),
           transition('minimized => maximized', [
             group([
               animate('1s ease-in-out', keyframes([
-                style({ width: '70%', offset: 0.3 }),
+                style({ width: '100%', offset: 0.3 }),
                 style({ height: '300px', offset: 1.0 })
               ])),
               query(':enter, td', [                

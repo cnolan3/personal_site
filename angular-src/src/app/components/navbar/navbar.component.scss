@@ -4,11 +4,23 @@ $burgerHoverColor: #dddddd;
 $animTime: 0.2s;
 
 .dot {
+    position: relative;
+    z-index: 0;
     height: 70px;
     width: 70px;
     background-color: $dotColor;
     border-radius: 35px;
     display: inline-block;
+}
+
+.siteTitle {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    top: 2.9em;
+    left: 42%;
+    text-align: center;
+    mix-blend-mode: overlay;
 }
 
 .center {
@@ -110,15 +122,10 @@ $animTime: 0.2s;
     }
 }
 
-//.nav-icon {
-//    margin: 1em;
-//    width: 40px;
-//}
-
 button.nav-icon {
     background: none;
     border: none;
-    width: 41px;
+    width: 40px;
     padding: 0;
     margin: 1em;
 }

@@ -1,18 +1,24 @@
-<div style="width: 100%;">
-  <div [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
-    <div class="row">
-      <div class="col-1">
-        <button (click)="toggle()" class="nav-icon center" #burgerIcon>
-          <div></div>
-        </button>
+<div class="container">
+  <div class="row" style="margin: 2em; text-align: center;">
+    <span [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
+      <div class="row">
+        <div class="col-1">
+          <button (click)="toggle()" class="nav-icon center" #burgerIcon>
+            <div></div>
+          </button>
+        </div>
+        <div *ngIf="maximized" class="col offset-4">
+          <tr *ngFor="let item of LIST">
+            <td style="text-align: center;">
+              <a [routerLink]="item.link">{{item.name}}</a>
+            </td>
+          </tr>
+        </div>
       </div>
-      <div *ngIf="maximized" class="col offset-4">
-        <tr *ngFor="let item of LIST">
-          <td style="text-align: center;">
-            <a [routerLink]="item.link">{{item.name}}</a>
-          </td>
-        </tr>
-      </div>
-    </div>
+    </span>
+    <span class="siteTitle">
+      <h1>cnolandev</h1>
+    </span>
+
   </div>
 </div>
