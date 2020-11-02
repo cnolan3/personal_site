@@ -1,14 +1,178 @@
+$dotColor: #dd5100;
+$burgerColor: white;
+$burgerHoverColor: #dddddd;
+$animTime: 0.2s;
+
 .dot {
     height: 70px;
     width: 70px;
-    background-color: #dd5100;
+    background-color: $dotColor;
     border-radius: 35px;
     display: inline-block;
 }
 
 .center {
     position: relative;
-    left: 0px;
-    top: 7px;
+    left: 1px;
+    top: 1px;
     outline: none;
+}
+
+@keyframes topAnimForward {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(11px);
+    }
+
+    100% {
+        transform: translateY(11px) rotate(45deg);
+    }
+}
+
+@keyframes topAnimBack {
+    0% {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(11px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes midAnimForward {
+    0% {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    51% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes midAnimBack {
+    0% {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
+
+    51% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes lowAnimForward {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-11px);
+    }
+
+    100% {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+}
+
+@keyframes lowAnimBack {
+    0% {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    50% {
+        transform: translateY(-11px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+//.nav-icon {
+//    margin: 1em;
+//    width: 40px;
+//}
+
+button.nav-icon {
+    background: none;
+    border: none;
+    width: 41px;
+    padding: 0;
+    margin: 1em;
+}
+
+.nav-icon:after,
+.nav-icon:before,
+.nav-icon div {
+    background-color: $burgerColor;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 5px;
+    margin: 6px 0;
+    transition: background-color 0.2s;
+}
+
+.nav-icon:hover:after,
+.nav-icon:hover:before,
+.nav-icon:hover div {
+    background-color: $burgerHoverColor;
+}
+
+.nav-icon.pressedForward:before {
+    animation-name: topAnimForward;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
+}
+
+.nav-icon.pressedBack:before {
+    animation-name: topAnimBack;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
+}
+
+.nav-icon.pressedForward:after {
+    animation-name: lowAnimForward;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
+}
+
+.nav-icon.pressedBack:after {
+    animation-name: lowAnimBack;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
+}
+
+.nav-icon.pressedForward div {
+    animation-name: midAnimForward;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
+}
+
+.nav-icon.pressedBack div {
+    animation-name: midAnimBack;
+    animation-duration: $animTime;
+    animation-fill-mode: forwards;
 }

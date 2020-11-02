@@ -2,14 +2,16 @@
   <div [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
     <div class="row">
       <div class="col-1">
-        <button (click)="toggle()" class="hamburger hamburger--squeeze center" type="button" #menubutton>
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
+        <button (click)="toggle()" class="nav-icon center" #burgerIcon>
+          <div></div>
         </button>
       </div>
-      <div *ngIf="maximized" class="col">
-        <p>aaaaaa</p>
+      <div *ngIf="maximized" class="col offset-4">
+        <tr *ngFor="let item of LIST">
+          <td style="text-align: center;">
+            <a [routerLink]="item.link">{{item.name}}</a>
+          </td>
+        </tr>
       </div>
     </div>
   </div>

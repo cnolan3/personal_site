@@ -7,7 +7,8 @@ import {
     transition,
     keyframes,
     query,
-    group
+    group,
+    stagger
 } from '@angular/animations';
 import { viewClassName } from '@angular/compiler';
 
@@ -31,12 +32,11 @@ import { viewClassName } from '@angular/compiler';
                 style({ width: '70%', offset: 0.3 }),
                 style({ height: '300px', offset: 1.0 })
               ])),
-              query(':enter', [
-                style({ opacity: '0', height: '0px' }),
-                animate('1s', keyframes([
-                  style({ opacity: '0', height: '0px', offset: 0.6 }),
-                  style({ opacity: '1', height: '100%', offset: 1 })
-                ]))
+              query(':enter, td', [                
+                style({ opacity: '0', height: '0px', transform: 'translateY(-7px)' }),
+                stagger('0.3s', [
+                  animate('0.3s', style({ opacity: '1', height: '100%', transform: 'none' }))
+                ])
               ])
             ])
           ]),
@@ -46,7 +46,7 @@ import { viewClassName } from '@angular/compiler';
                 style({ height: '70px', offset: 0.5 }),
                 style({ width: '70px', offset: 1.0 }),
               ])),
-              query(':leave', [
+              query(':leave, td', [
                 animate('1s', keyframes([
                   style({ opacity: '0', offset: 0.2 }),
                   style({ opacity: '0', offset: 1 })
@@ -62,7 +62,14 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
   maximized : boolean = false;
-  @ViewChild("menubutton") menuButton;
+  pressed : boolean = false;
+  @ViewChild("burgerIcon") burger;
+
+  LIST = [
+    { id: 1, link: 'a', name: 'Home' },
+    { id: 2, link: 'b', name: 'Projects' },
+    { id: 3, link: 'c', name: 'Blog' }
+  ];
 
   ngOnInit(): void {
   }
@@ -72,11 +79,13 @@ export class NavbarComponent implements OnInit {
 
       if (this.maximized)
       {
-        this.menuButton.nativeElement.classList.add("is-active");
+        this.burger.nativeElement.classList.remove("pressedBack");
+        this.burger.nativeElement.classList.add("pressedForward");
       }
       else
       {
-        this.menuButton.nativeElement.classList.remove("is-active");
+        this.burger.nativeElement.classList.remove("pressedForward")
+        this.burger.nativeElement.classList.add("pressedBack");
       }
   }
 }
