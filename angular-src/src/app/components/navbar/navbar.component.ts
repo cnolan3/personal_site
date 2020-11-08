@@ -22,16 +22,16 @@ import { faCode, faCodeBranch, faHome, faBookOpen } from '@fortawesome/free-soli
       
         transition(':enter', [
           query('.nav-item', [
-            style({ opacity: '0', transform: 'translateX(-30px)' }),
+            style({ opacity: '0', transform: 'translateX(-20px)' }),
             stagger('0.2s', [
-              animate('0.3s ease-out', style({ opacity: '1.0', transform: 'none' }))
+              animate('0.2s ease-out', style({ opacity: '1.0', transform: 'none' }))
             ])
           ])
             
         ]),
         transition(':leave', [
           style({ opacity: '1.0', transform: 'none' }),
-          animate('0.05s', style({ opacity: '0', transform: 'translateX(-30px)' }))
+          animate('0.05s', style({ opacity: '0', transform: 'translateX(-20px)' }))
         ])
         
     ])
