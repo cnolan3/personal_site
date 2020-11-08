@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-
-$hamburger-layer-color : #FFF;
-@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss"
+body {
+    background-color: black;
+}

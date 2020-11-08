@@ -1,24 +1,31 @@
-<div class="container">
-  <div class="row" style="margin: 2em; text-align: center;">
-    <span [@expand]="maximized ? 'maximized' : 'minimized'" class="dot">
-      <div class="row">
-        <div class="col-1">
-          <button (click)="toggle()" class="nav-icon center" #burgerIcon>
-            <div></div>
-          </button>
-        </div>
-        <div *ngIf="maximized" class="col offset-4">
-          <tr *ngFor="let item of LIST">
-            <td style="text-align: center;">
-              <a [routerLink]="item.link">{{item.name}}</a>
-            </td>
-          </tr>
-        </div>
-      </div>
-    </span>
-    <span class="siteTitle">
-      <h1>cnolandev</h1>
-    </span>
+<div class="main-row">
+  <div class="main-item">
+    <div class="dot" #dot>
+      <button (click)="toggle()" class="nav-icon" #burgerIcon>
+        <div></div>
+      </button>
+    </div>
 
+
+    <div *ngIf="maximized" class="nav-item-row" [@fade]>
+      <div class="nav-item">
+        <fa-icon [icon]="faHome"></fa-icon>
+        <h3>Home</h3>
+      </div>
+      <div class="nav-item">
+        <fa-icon [icon]="faCode"></fa-icon>
+        <h3>Projects</h3>
+      </div>
+      <div class="nav-item">
+        <fa-icon [icon]="faCodeBranch"></fa-icon>
+        <h3>GitHub</h3>
+      </div>
+      <div class="nav-item">
+        <fa-icon [icon]="faBookOpen"></fa-icon>
+        <h3>DevLog</h3>
+      </div>
+    </div>
+      
+    <h1 class="siteTitle">cnolandev</h1>
   </div>
 </div>
