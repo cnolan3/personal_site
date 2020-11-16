@@ -1,4 +1,5 @@
 $dotColor: #dd5100;
+$navBGColor: black;
 $iconColor: white;
 $iconHoverColor: #dddddd;
 $animTime: 0.2s;
@@ -8,6 +9,11 @@ $navLRPadding: 5vh;
 $navItemSize: 4vh;
 $translateLength: 8px;
 $dotSize: 50px;
+
+
+
+$navHeight: 50px;
+$navLRMargin: 5vw;
 
 @keyframes topAnimForward {
     0% {
@@ -102,31 +108,32 @@ $dotSize: 50px;
 }
 
 .main-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    margin-top: 3em;
+    position: relative;
+    width: 100%;
+    height: 40vh;
+//    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, black 90%, black 100%), rgba(0,0,0,0);
+//    background: rgba(0,0,0,0);
+    background-size: calc(100% + 1px) 100%;
 }
 
 .main-item {
     display: flex;
-    flex-direction: row;
-    flex-grow: 1;
     position: relative;
-    margin-left: 2vh;
-    margin-right: 2vh;
+    top: 5vh;
+    flex-direction: row;
+    width: auto;
+    height: $navHeight;
+    margin: 0px $navLRMargin 0px;
+    flex-grow: 1;
     align-items: center;
 }
 
 .dot {
-    position: relative;
-    z-index: 1;
-    height: $dotSize;
-    width: $dotSize;
+    position: absolute;
+    height: $navHeight;
+    width: $navHeight;
     background-color: $dotColor;
-    border-radius: 25px;
-    display: block;
+    border-radius: calc(#{$navHeight} / 2);
     transition: width 0.4s;
 }
 
@@ -134,10 +141,26 @@ $dotSize: 50px;
     width: 100%;
 }
 
-.siteTitle {
+.nav-bg {
     position: absolute;
-    color: white;
-    z-index: 0;
+    z-index: -1;
+    width: 100%;
+    height: $navHeight;
+    border-radius: calc(#{$navHeight} / 2);
+    background-color: $navBGColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    transition: opacity 0.4s;
+}
+
+.nav-bg.show {
+    opacity: 60%;
+}
+
+.siteTitle {
+    color: $iconColor;
     text-align: center;
     width: 100%;
 }
@@ -147,10 +170,10 @@ $dotSize: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: 42px;
+    margin-left: $navHeight;
     flex-grow: 1;
     z-index: 2;
-    width: calc(100% - 42px);
+    width: calc(100% - #{$navHeight});
     height: 100%;
     box-sizing: border-box;
     align-items: center;
@@ -158,12 +181,17 @@ $dotSize: 50px;
 }
 
 .nav-item {
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $iconColor;
     transition: color 0.2s;
+}
+
+.nav-item:hover {
+    color: $iconHoverColor;
 }
 
 .nav-item h3 {
@@ -173,14 +201,7 @@ $dotSize: 50px;
     margin-bottom: auto;
     transform: translateY(1em);
     z-index: 4;
-    opacity: 0%;
     font-size: 0.8em;
-    transition: opacity $navItemAnimTime linear;
-}
-
-.nav-item:hover h3 {
-    opacity: 100%;
-    transition: opacity $navItemAnimTime linear $navItemAnimDelay;
 }
 
 .nav-item fa-icon {
@@ -188,17 +209,15 @@ $dotSize: 50px;
     display: block;
     z-index: 5;
     font-size: 20px;
-    transition: all $navItemAnimTime linear $navItemAnimDelay;
-}
-
-.nav-item:hover fa-icon {
     transform: translateY(-0.35em);
-    transition: all $navItemAnimTime linear;
+
+//    transition: all $navItemAnimTime linear $navItemAnimDelay;
 }
 
-.nav-item:hover {
-    color: $iconHoverColor;
-}
+//.nav-item:hover fa-icon {
+//    transform: translateY(-0.35em);
+//    transition: all $navItemAnimTime linear;
+//}
 
 button.nav-icon {
     background: none;
@@ -267,7 +286,7 @@ button.nav-icon {
 
 @media only screen and (min-width: 736px) {
     $translateLength: 12px;
-    $dotSize: 70px;
+    $navHeight: 70px;
 
     @keyframes topAnimForward {
         0% {
@@ -330,9 +349,14 @@ button.nav-icon {
         margin-right: 10vh;
     }
 
+    .nav-bg {
+        height: $navHeight;
+        border-radius: calc(#{$navHeight} / 2);
+    }
+
     .nav-item-row {
-        margin-left: $dotSize;
-        width: calc(100% - 70px);
+        margin-left: $navHeight;
+        width: calc(100% - #{$navHeight});
     }
 
     .nav-item h3 {
@@ -345,9 +369,9 @@ button.nav-icon {
     }
 
     .dot {
-        height: $dotSize;
-        width: $dotSize;
-        border-radius: 35px;
+        height: $navHeight;
+        width: $navHeight;
+        border-radius: calc(#{$navHeight} / 2);
     }
 
     button.nav-icon {
@@ -376,22 +400,32 @@ button.nav-icon {
     }
 
     .nav-item h3 {
+        transform: translateY(1.1em);
+        opacity: 0%;
         font-size: 1em;
-        transform: translateY(1.2em);
+        transition: opacity $navItemAnimTime linear;
+    }
+
+    .nav-item:hover h3 {
+        opacity: 100%;
+        transition: opacity $navItemAnimTime linear $navItemAnimDelay;
     }
 
     .nav-item fa-icon {
         font-size: 30px;
+        transform: translateY(0px);
+        transition: all $navItemAnimTime linear $navItemAnimDelay;
     }
 
     .nav-item:hover fa-icon {
         transform: translateY(-0.25em);
+        transition: all $navItemAnimTime linear;
     }
 }
 
 @media only screen and (min-width: 1440px) {
-    $translateLength: 14px;
-    $dotSize: 86px;
+    $translateLength: 13px;
+    $navHeight: 76px;
 
     @keyframes topAnimForward {
         0% {
@@ -449,25 +483,30 @@ button.nav-icon {
         }
     }
 
+    .nav-bg {
+        height: $navHeight;
+        border-radius: calc(#{$navHeight} / 2);
+    }
+
     .main-item {
         margin-left: 30vh;
         margin-right: 30vh;
     }
 
     .nav-item-row {
-        margin-left: $dotSize;
-        width: calc(100% - 70px);
+        margin-left: $navHeight;
+        width: calc(100% - #{$navHeight});
     }
 
     .dot {
-        height: $dotSize;
-        width: $dotSize;
-        border-radius: 43px;
+        height: $navHeight;
+        width: $navHeight;
+        border-radius: calc(#{$navHeight} / 2);
     }
 
     .nav-item h3 {
         font-size: 1.3em;
-        transform: translateY(1.3em);
+        transform: translateY(1em);
     }
 
     .nav-item fa-icon {
@@ -479,8 +518,8 @@ button.nav-icon {
     }
 
     button.nav-icon {
-        width: 51px;
-        margin: 17px 17px;
+        width: 48px;
+        margin: 15px 14px;
     }
 
     .nav-icon:after,
@@ -488,7 +527,7 @@ button.nav-icon {
     .nav-icon div {
         border-radius: 3px;
         height: 6px;
-        margin: 8px 0;
+        margin: 7px 0;
     }
 
     .siteTitle {

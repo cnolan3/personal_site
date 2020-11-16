@@ -1,0 +1,61 @@
+.main-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100vh 50vh;
+}
+
+.banner {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%), url(http://localhost:4000/images/img002.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.content {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: black;
+}
+
+.parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 100vh 0;
+}
+
+.parallax-layer-base {
+//    background-color: rgba(255,0,0,0.5);
+    transform: translateZ(0);
+}
+
+.parallax-layer-back {
+//    background-color: rgba(0,255,0,0.5);
+    transform: translateZ(-1px) scale(2);
+}
+
+.bgImg {
+//    height: 100%;
+//    width: 100vw;
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%), url(http://localhost:4000/images/img002.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-attachment: scroll;
+    background-size: cover;
+}

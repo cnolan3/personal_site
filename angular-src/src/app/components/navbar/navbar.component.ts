@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Host } from '@angular/core';
 import {
     trigger,
     state,
@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
   pressed : boolean = false;
   @ViewChild("burgerIcon") burger;
   @ViewChild("dot") dot;
+  @ViewChild("navBG") navBG;
 
   faCode = faCode;
   faCodeBranch = faCodeBranch;
@@ -72,5 +73,28 @@ export class NavbarComponent implements OnInit {
 
         this.dot.nativeElement.classList.remove("expand");
       }
+  }
+
+  @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
+    console.log(window.scrollY);
+    if (window.scrollY > 80)
+    {
+      this.showBG(true);
+    }
+    else
+    {
+      this.showBG(false);
+    }
+  }
+
+  showBG(show: boolean): void {
+    if (show)
+    {
+      this.navBG.nativeElement.classList.add("show");
+    }
+    else
+    {
+      this.navBG.nativeElement.classList.remove("show");
+    }
   }
 }
