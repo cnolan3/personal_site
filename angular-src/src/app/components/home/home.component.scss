@@ -9,11 +9,6 @@
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
-    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%), url(http://localhost:4000/images/img002.png);
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-attachment: scroll;
-    background-size: cover;
 }
 
 .content {
@@ -25,10 +20,10 @@
 }
 
 .parallax {
-    perspective: 1px;
+    perspective: 100px;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+//    overflow-x: hidden;
+//    overflow-y: auto;
 }
 
 .parallax-layer {
@@ -37,22 +32,32 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 100vh 0;
+//    padding: 100vh 100vw;
 }
 
 .parallax-layer-base {
-//    background-color: rgba(255,0,0,0.5);
-    transform: translateZ(0);
+    transform: translateZ(15px);
+}
+
+.parallax-layer-base.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+//    height: 100vh;
+//    width: 100%;
+}
+
+.parallax-layer-base h1 {
+    text-align: center;
 }
 
 .parallax-layer-back {
-//    background-color: rgba(0,255,0,0.5);
-    transform: translateZ(-1px) scale(2);
+    transform: translateZ(0);
 }
 
 .bgImg {
-//    height: 100%;
-//    width: 100vw;
+    height: 100%;
+    width: 100vw;
     background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%), url(http://localhost:4000/images/img002.png);
     background-repeat: no-repeat;
     background-position: center bottom;

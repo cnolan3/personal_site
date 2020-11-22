@@ -54,6 +54,7 @@ export class NavbarComponent implements OnInit {
   faBookOpen = faBookOpen;
 
   ngOnInit(): void {
+    document.body.addEventListener('scroll', () => this.showBG())
   }
   
   toggle(): void {
@@ -75,20 +76,20 @@ export class NavbarComponent implements OnInit {
       }
   }
 
-  @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
-    console.log(window.scrollY);
-    if (window.scrollY > 80)
-    {
-      this.showBG(true);
-    }
-    else
-    {
-      this.showBG(false);
-    }
-  }
+//  @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
+//    console.log(window.scrollY);
+//    if (window.scrollY > 80)
+//    {
+//      this.showBG(true);
+//    }
+//    else
+//    {
+//      this.showBG(false);
+//    }
+//  }
 
-  showBG(show: boolean): void {
-    if (show)
+  showBG(): void {
+    if (document.body.scrollTop > 80)
     {
       this.navBG.nativeElement.classList.add("show");
     }
