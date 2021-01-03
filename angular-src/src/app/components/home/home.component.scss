@@ -1,66 +1,49 @@
-.main-container {
+//    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%), url(http://localhost:4000/images/img002.jpg);
+$homebgcolor: black;
+
+.wrapper {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 100vh 50vh;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 100vh minmax(50vh, auto);
 }
 
 .banner {
     grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-end: 4;
     grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-end: 2;
+    background-image: linear-gradient(0deg, $homebgcolor 0%, rgba(0,0,0,0) 11%), url(http://localhost:4000/images/img002.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center bottom;
+}
+
+.welcome-col {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-block {
+    height: 10vh;
+    background-color: $homebgcolor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-block h1 {
+    color: white;
 }
 
 .content {
     grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-end: 4;
     grid-row-start: 2;
-    grid-row-end: 2;
-    background-color: black;
-}
-
-.parallax {
-    perspective: 100px;
-    height: 100vh;
-//    overflow-x: hidden;
-//    overflow-y: auto;
-}
-
-.parallax-layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-//    padding: 100vh 100vw;
-}
-
-.parallax-layer-base {
-    transform: translateZ(15px);
-}
-
-.parallax-layer-base.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-//    height: 100vh;
-//    width: 100%;
-}
-
-.parallax-layer-base h1 {
-    text-align: center;
-}
-
-.parallax-layer-back {
-    transform: translateZ(0);
-}
-
-.bgImg {
-    height: 100%;
-    width: 100vw;
-    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%), url(http://localhost:4000/images/img002.png);
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-attachment: scroll;
-    background-size: cover;
+    grid-row-end: 3;
+    background-color: $homebgcolor;
 }
