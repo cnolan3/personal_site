@@ -1,5 +1,41 @@
 //    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%), url(http://localhost:4000/images/img002.jpg);
+@import "~compass-mixins/lib/animate";
 $homebgcolor: black;
+$slideLength: 0.4em;
+
+@mixin welcomeAnim($i, $fadeTime, $pauseTime, $stagger, $totalTime) {
+    @include keyframes(slideFade#{$i}) {
+        0% {
+            @include opacity(0);
+            @include transform(translateY($slideLength));
+        }
+
+        #{($i * $stagger)/$totalTime * 100}% {
+            @include opacity(0);
+            @include transform(translateY($slideLength));
+        }
+
+        #{(($i * $stagger) + $fadeTime)/$totalTime * 100}% {
+            @include opacity(1);
+            @include transform(translateY(0));
+        }
+
+        #{(($i * $stagger) + $fadeTime + $pauseTime)/$totalTime * 100}% {
+            @include opacity(1);
+            @include transform(translateY(0));
+        }
+
+        #{(($i * $stagger) + ($fadeTime * 2) + $pauseTime)/$totalTime * 100}% {
+            @include opacity(0);
+            @include transform(translateY(-$slideLength));
+        }
+
+        100% {
+            @include opacity(0);
+            @include transform(translateY(-$slideLength));
+        }
+    }
+}
 
 .wrapper {
     display: grid;
@@ -29,7 +65,8 @@ $homebgcolor: black;
 }
 
 .welcome-block {
-    height: 10vh;
+    position: relative;
+    height: 10em;
     background-color: $homebgcolor;
     display: flex;
     justify-content: center;
@@ -39,6 +76,35 @@ $homebgcolor: black;
 .welcome-block h1 {
     color: white;
 }
+
+.welcome-block h1,
+.welcome-block h1 > span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-block h1 > span {
+    position: absolute;
+    opacity: 0;
+//    animation: slideFade 4s linear forwards;
+}
+
+$childNum: 2;
+$fadeTime: 0.5s;
+$pauseTime: 1s;
+$stagger: $pauseTime + ($fadeTime * 2);
+$totalTime: $stagger * $childNum;
+
+@for $i from 0 through $childNum {
+    @include welcomeAnim($i, $fadeTime, $pauseTime, $stagger, $totalTime);
+    .welcome-block h1 > span:nth-child(#{($i + 1)}) {
+        animation: slideFade#{($i)} $totalTime infinite;
+    }
+}
+
 
 .content {
     grid-column-start: 1;
