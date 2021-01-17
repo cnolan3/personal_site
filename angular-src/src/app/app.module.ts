@@ -11,19 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { PostCreateComponent } from './components/post-create/post-create.component';
-import { PostListComponent } from './components/post-list/post-list.component';
-import { PostComponent } from './components/post/post.component';
-
-import { PostApiService } from './service/post-api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostCreateComponent,
-    PostListComponent,
-    PostComponent,
     NavbarComponent
   ],
   imports: [
@@ -35,9 +27,7 @@ import { PostApiService } from './service/post-api.service';
     FormsModule,
     FontAwesomeModule
   ],
-  providers: [
-    PostApiService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
