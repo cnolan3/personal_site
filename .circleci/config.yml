@@ -18,6 +18,9 @@ jobs:
           path: ./junit
       - store_artifacts:
           path: ./junit
+
+  deploy:
+    
 workflows:
   version: 2.1
   test_workflow:
