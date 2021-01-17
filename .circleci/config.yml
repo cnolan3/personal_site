@@ -5,26 +5,22 @@ jobs:
     working_directory: ~/personal_site/angular-src
     docker:
       - image: circleci/node:10
-    dependencies:
-      pre:
-        - npm install npm@latest -g
-        - npm install angular-cli@latest -g
     steps:
       - checkout:
-        path: ~/personal_site
+          path: ~/personal_site
       - run:
-        name: Install Dependencies
-        command: npm install
+          name: Install Dependencies
+          command: npm install
       - run:
-        name: Run Tests
-        command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          name: Run Tests
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 workflows:
   version: 2.1
   test_workflow:
     jobs:
       - test-frontend:
-        filters:
-          branches:
-            only:
-              - master
+          filters:
+            branches:
+              only:
+                - master
       
