@@ -20,6 +20,8 @@ jobs:
           path: ./junit
 
   deploy:
+    steps:
+      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "~/deploy.sh"
     
 workflows:
   version: 2.1
@@ -30,4 +32,6 @@ workflows:
             branches:
               only:
                 - master
-      
+      - deploy:
+          requires:
+            - test-frontend
