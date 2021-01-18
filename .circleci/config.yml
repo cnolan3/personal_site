@@ -20,6 +20,8 @@ jobs:
           path: ./junit
 
   deploy:
+    docker:
+      - image: circleci/node:10-browsers
     steps:
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "~/deploy.sh"
     
