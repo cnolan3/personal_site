@@ -5,4 +5,4 @@ RUN npm install -g @angular/cli
 COPY package.json /usr/src/app
 RUN npm install
 COPY . /usr/src/app
-CMD ["npm", "run", "build", "--prod", "--base-href cnolandev.com"]
+CMD ["npm", "run", "build", "--prod"]
