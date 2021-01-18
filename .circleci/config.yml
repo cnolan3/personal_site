@@ -4,7 +4,7 @@ jobs:
   test-frontend:
     working_directory: ~/personal_site/angular-src
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:12-browsers
     steps:
       - checkout:
           path: ~/personal_site
@@ -21,7 +21,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:12-browsers
     steps:
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "~/deploy.sh"
     
