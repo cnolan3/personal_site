@@ -8,5 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./angular-src:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./angular-src/dist:/usr/src/app/dist
     ports:
       - "4200:4200"
