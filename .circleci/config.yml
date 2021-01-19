@@ -4,7 +4,7 @@ jobs:
   test-frontend:
     working_directory: ~/personal_site/angular-src
     docker:
-      - image: circleci/node:10-browsers
+      - image: angular/ngcontainer:latest
     steps:
       - checkout:
           path: ~/personal_site
