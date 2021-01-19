@@ -4,7 +4,7 @@ jobs:
   test-frontend:
     working_directory: ~/personal_site/angular-src
     docker:
-      - image: angular/ngcontainer:latest
+      - image: circleci/node:browsers
     steps:
       - checkout:
           path: ~/personal_site
@@ -13,7 +13,7 @@ jobs:
           command: npm install
       - run:
           name: Run Tests
-          command: npm run test -- --no-watch --browsers=ChromiumHeadless
+          command: npm run test -- --no-watch --browsers=ChromeHeadlessCI
       - store_test_results:
           path: ./junit
       - store_artifacts:
