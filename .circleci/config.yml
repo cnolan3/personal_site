@@ -13,7 +13,7 @@ jobs:
           command: npm install
       - run:
           name: Run Tests
-          command: npm run test -- --no-watch --browsers=Chrome
+          command: npm run test -- --no-watch --browsers=ChromiumHeadless
       - store_test_results:
           path: ./junit
       - store_artifacts:
