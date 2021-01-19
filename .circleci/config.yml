@@ -4,7 +4,7 @@ jobs:
   test-frontend:
     working_directory: ~/personal_site/angular-src
     docker:
-      - image: circleci/node:12-browsers
+      - image: circleci/node:10-browsers
     steps:
       - checkout:
           path: ~/personal_site
@@ -13,7 +13,7 @@ jobs:
           command: npm install
       - run:
           name: Run Tests
-          command: npm run test -- --no-watch --browsers=ChromeHeadless
+          command: npm run test -- --no-watch --browsers=Chrome
       - store_test_results:
           path: ./junit
       - store_artifacts:
@@ -21,7 +21,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:12-browsers
+      - image: circleci/node:10-browsers
     steps:
       - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "~/deploy.sh"
     
