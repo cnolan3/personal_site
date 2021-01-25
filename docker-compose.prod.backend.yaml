@@ -6,10 +6,9 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile.dev
-    environment:
-      SITE_DB_NAME: "sitedb"
-      DEV_USERNAME: "devuser"
-      DEV_PASSWORD: "pass"
+    env_file: 
+      - backend_vars.env
+
     ports:
       - "4000:4000"
     volumes:
@@ -20,12 +19,8 @@ services:
   database:
     hostname: database
     image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: "root"
-      MONGO_INITDB_ROOT_PASSWORD: "root"
-      SITE_DB_NAME: "sitedb"
-      DEV_USERNAME: "devuser"
-      DEV_PASSWORD: "pass"
+    env_file:
+      - backend_vars.env
     volumes:
       - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
     ports:
