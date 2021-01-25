@@ -6,6 +6,8 @@ services:
     build:
       context: angular-src 
       dockerfile: Dockerfile.dev
+    environment:
+      BACKEND_URL: "backend:4000"
     volumes:
       - ./angular-src:/usr/src/app
       - /usr/src/app/node_modules
