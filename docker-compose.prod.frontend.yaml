@@ -9,6 +9,4 @@ services:
     env_file:
       - frontend_vars.env
     volumes:
-      - ./angular-src:/usr/src/app
-      - /usr/src/app/node_modules
       - ./angular-src/dist:/usr/src/app/dist

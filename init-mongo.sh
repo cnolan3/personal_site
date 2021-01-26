@@ -1,10 +1,12 @@
 #!/bin/bash
 set -e
 
+echo "******************************************************************"
+
 mongo <<EOF
 use $DB_NAME
 
-db.artible.insert({"test":"test"})
+db.article.insert({"test":"test"})
 
 use admin
 db.createUser(

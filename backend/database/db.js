@@ -1,7 +1,12 @@
-sitedb = process.env.SITE_DB_NAME;
-devuser = process.env.DEV_USERNAME;
-devpass = process.env.DEV_PASSWORD;
+dbname = process.env.DB_NAME;
+dbuser = process.env.DB_USERNAME;
+dbpass = process.env.DB_PASSWORD;
+dbip = process.env.DB_IP;
 
 module.exports = {
-    db: 'mongodb://' + devuser + ':' + devpass + '@database:27017/' + sitedb
+    dbname,
+    dbuser,
+    dbpass,
+    dbip,
+    url: 'mongodb://' + dbip + '/' + dbname
 };

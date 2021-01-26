@@ -8,11 +8,8 @@ services:
       dockerfile: Dockerfile.dev
     env_file: 
       - backend_vars.env
-
     ports:
       - "4000:4000"
-    volumes:
-      - ./backend:/usr/src/app
     links:
       - database
   

@@ -9,12 +9,19 @@ let express = require('express'),
 console.log(dbConfig.db);
 mongoose.Promise = global.Promise;
 var connectWithRetry = function() {
-    return mongoose.connect(dbConfig.db, {
+    return mongoose.connect(dbConfig.url, {
+        auth: {
+            user: dbConfig.dbuser,
+            password: dbConfig.dbpass
+        },
+        authSource: "admin",
         useNewUrlParser: true
     }).then(() => {
             console.log('Database successfully connected');
         },
         error => {
+            console.log('login: ' + dbConfig.dbuser + '@' + dbConfig.dbname + ', pass: ' + dbConfig.dbpass);
+            console.log('dburl: ' + dbConfig.url);
             console.log('Database could not be connected: ' + error);
             setTimeout(connectWithRetry, 5000);
         }
