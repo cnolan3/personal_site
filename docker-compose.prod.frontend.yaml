@@ -8,5 +8,6 @@ services:
       dockerfile: Dockerfile
     env_file:
       - frontend_vars.env
-    volumes:
-      - ./angular-src/dist:/usr/src/app/dist
+    ports:
+      - "80:80"
+      - "443:443"
