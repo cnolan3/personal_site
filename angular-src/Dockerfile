@@ -5,4 +5,4 @@ RUN npm install -g @angular/cli
 COPY package.json /usr/src/app
 RUN npm install
 COPY . /usr/src/app
-CMD ["ng", "build", "--prod"]
+RUN ng build --prod
