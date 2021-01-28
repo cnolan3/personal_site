@@ -39,7 +39,7 @@ app.use(cors());
 
 // set up static routes
 app.use(express.static(path.resolve('./public')));
-app.use('/images', express.static(path.resolve('./site_images')));
+//app.use('/images', express.static(path.resolve('./site_images')));
 
 // routes
 const blogPostRoute = require('./routes/blog_post_route');
