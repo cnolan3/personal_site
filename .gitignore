@@ -1,1 +1,4 @@
 .vscode/settings.json
+
+frontend_vars.env
+backend_vars.env
