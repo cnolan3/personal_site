@@ -13,8 +13,7 @@ services:
       - web-root:/usr/src/app/dist
 
   server:
-#    image: nginx:mainline-alpine
-    dockerfile: nginx/Dockerfile
+    image: nginx:mainline-alpine
     container_name: server
     ports:
       - "80:80"
