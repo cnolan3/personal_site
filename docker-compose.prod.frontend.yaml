@@ -35,7 +35,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - server
-    command: certonly --webroot --webroot-path=/var/www/html --email connornolan15@gmail.com --agree-tos --no-eff-email --staging -d cnolandev.com -d www.cnolandev.com
+    command: certonly --webroot --webroot-path=/var/www/html --email connornolan15@gmail.com --agree-tos --no-eff-email --force-renewal -d cnolandev.com -d www.cnolandev.com
 
 volumes:
   certbot-etc:
