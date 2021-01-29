@@ -3,6 +3,7 @@ version: '3.7'
 services:
   frontend:
     hostname: frontend
+    container_name: frontend
     build:
       context: angular-src 
       dockerfile: Dockerfile.dev
@@ -16,6 +17,7 @@ services:
   
   backend:
     hostname: backend
+    container_name: backend
     build:
       context: backend
       dockerfile: Dockerfile.dev
@@ -34,6 +36,7 @@ services:
   
   database:
     hostname: database
+    container_name: database
     image: mongo:latest
     environment:
       MONGO_INITDB_ROOT_USERNAME: "root"

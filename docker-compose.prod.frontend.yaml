@@ -3,11 +3,41 @@ version: '3.7'
 services:
   frontend:
     hostname: frontend
+    container_name: frontend
     build:
       context: angular-src 
       dockerfile: Dockerfile
     env_file:
       - frontend_vars.env
+    volumes:
+      - web-root:/usr/src/app/dist
+
+  server:
+    image: nginx:mainline-alpine
+    container_name: server
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - web-root:/usr/share/nginx/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/etc/lib/letsencrypt
+    depends_on:
+      - frontend
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
+    depends_on:
+      - server
+    command: certonly --webroot --webroot-path=/var/www/html --email connornolan15@gmail.com --agree-tos --no-eff-email --staging -d cnolandev.com -d www.cnolandev.com
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:

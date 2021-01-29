@@ -3,6 +3,7 @@ version: '3.7'
 services:
   backend:
     hostname: backend
+    container_name: backend
     build:
       context: backend
       dockerfile: Dockerfile.dev
@@ -15,6 +16,7 @@ services:
   
   database:
     hostname: database
+    container_name: database
     image: mongo:latest
     env_file:
       - backend_vars.env
