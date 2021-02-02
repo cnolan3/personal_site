@@ -6,5 +6,5 @@ import { Component, HostBinding } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-src';
+  title = 'cnolandev';
 }
