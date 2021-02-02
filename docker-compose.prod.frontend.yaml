@@ -18,3 +18,4 @@ volumes:
     driver_opts:
       type: none
       device: /var/www/html
+      o: bind
