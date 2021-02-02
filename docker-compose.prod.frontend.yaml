@@ -10,12 +10,4 @@ services:
     env_file:
       - frontend_vars.env
     volumes:
-      - web-root:/usr/src/app/dist
-
-volumes:
-  web-root:
-    driver: local
-    driver_opts:
-      type: none
-      device: /var/www/html
-      o: bind
+      - /var/www/html:/usr/src/app/dist
