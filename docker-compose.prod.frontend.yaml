@@ -10,4 +10,4 @@ services:
     env_file:
       - frontend_vars.env
     volumes:
-      - /var/www/html:/usr/src/app/dist
+      - /var/www/tmp:/usr/src/app/dist
