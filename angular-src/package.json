@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --watch --host 0.0.0.0",
+    "start": "ng serve --watch --host 0.0.0.0 --poll=2000",
+    "start:prodtest": "ng serve --watch --host 0.0.0.0 --poll=2000 --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
