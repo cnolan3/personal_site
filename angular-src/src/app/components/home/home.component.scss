@@ -1,7 +1,110 @@
-//    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 20%), url(http://localhost:4000/images/img002.jpg);
+// *****************************************************
+// modified from https://codepen.io/goodkatz/pen/LYPGxQz
+// *****************************************************
+
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 @import "~compass-mixins-fixed/lib/animate";
-$homebgcolor: black;
-$slideLength: 0.4em;
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:1000;
+  letter-spacing: 2px;
+  font-size:50px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgb(156, 19, 72) 0%, rgb(236, 75, 0) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:75vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:5vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
 
 @mixin welcomeAnim($i, $fadeTime, $pauseTime, $stagger, $totalTime) {
     @include keyframes(slideFade#{$i}) {
@@ -37,48 +140,8 @@ $slideLength: 0.4em;
     }
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 100vh minmax(50vh, auto);
-}
-
-.banner {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background-image: linear-gradient(0deg, $homebgcolor 0%, rgba(0,0,0,0) 11%), url("/assets/images/img002.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right bottom;
-}
-
-.welcome-col {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.welcome-block {
-    position: relative;
-    height: 10em;
-    background-color: $homebgcolor;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.welcome-block h1 {
-    color: white;
-}
-
-.welcome-block h1,
-.welcome-block h1 > span {
+h1,
+h1 > span {
     height: 100%;
     width: 100%;
     display: flex;
@@ -86,13 +149,14 @@ $slideLength: 0.4em;
     align-items: center;
 }
 
-.welcome-block h1 > span {
+h1 > span {
     position: absolute;
     opacity: 0;
 //    animation: slideFade 4s linear forwards;
 }
 
-$childNum: 2;
+$slideLength: 0.4em;
+$childNum: 5;
 $fadeTime: 0.5s;
 $pauseTime: 1s;
 $stagger: $pauseTime + ($fadeTime * 2);
@@ -100,16 +164,7 @@ $totalTime: $stagger * $childNum;
 
 @for $i from 0 through $childNum {
     @include welcomeAnim($i, $fadeTime, $pauseTime, $stagger, $totalTime);
-    .welcome-block h1 > span:nth-child(#{($i + 1)}) {
+    h1 > span:nth-child(#{($i + 1)}) {
         animation: slideFade#{($i)} $totalTime infinite;
     }
-}
-
-
-.content {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    background-color: $homebgcolor;
 }
