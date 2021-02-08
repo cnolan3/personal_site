@@ -12,22 +12,22 @@
 
 
     <div *ngIf="maximized" class="nav-item-row" [@fade]>
-      <div class="nav-item">
+      <a class="nav-item" routerLink="/home">
         <fa-icon [icon]="faHome"></fa-icon>
         <h3>Home</h3>
-      </div>
-      <div class="nav-item">
+      </a>
+      <a class="nav-item" routerLink="/underconstruction">
         <fa-icon [icon]="faCode"></fa-icon>
         <h3>Projects</h3>
-      </div>
-      <div class="nav-item">
+      </a>
+      <a class="nav-item" href="https://github.com/cnolan3">
         <fa-icon [icon]="faCodeBranch"></fa-icon>
         <h3>GitHub</h3>
-      </div>
-      <div class="nav-item">
+      </a>
+      <a class="nav-item" routerLink="/underconstruction">
         <fa-icon [icon]="faBookOpen"></fa-icon>
         <h3>DevLog</h3>
-      </div>
+      </a>
     </div>
     
     

@@ -15,6 +15,10 @@ $dotSize: 50px;
 $navHeight: 50px;
 $navLRMargin: 5vw;
 
+a {
+    all: unset;
+}
+
 @keyframes topAnimForward {
     0% {
         transform: translateY(0px) rotate(0deg);
