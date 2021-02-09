@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { UnderConstructionComponent } from './components/under-construction/under-construction.component';
+import { WaveBgComponent } from './components/wave-bg/wave-bg.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { UnderConstructionComponent } from './components/under-construction/unde
     HomeComponent,
     NavbarComponent,
     UnderConstructionComponent,
+    WaveBgComponent,
   ],
   imports: [
     BrowserModule,
