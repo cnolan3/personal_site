@@ -7,12 +7,35 @@
 
 .wave {
   position: sticky;
-  top: -63vh;
+  top: -65vh;
 }
 
 .content {
   position: relative;
   z-index: -1;
+}
+
+.about_grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-auto-rows: minmax(50vh, auto);
+  padding: 0px 10vw;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section_text {
+  grid-column: auto / span 2;
+  justify-content:left;
+}
+
+.section_image {
+  grid-column: auto / span 1;
+  justify-content: center;
 }
 
 h1 {
