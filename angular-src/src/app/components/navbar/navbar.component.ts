@@ -90,7 +90,6 @@ export class NavbarComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
-    console.log(window.scrollY);
     if (window.scrollY > 80)
     {
       this.hideBG(true);

@@ -5,12 +5,27 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 @import "~compass-mixins-fixed/lib/animate";
 
+.wave {
+  position: sticky;
+  top: -63vh;
+}
+
+.content {
+  position: relative;
+  z-index: -1;
+}
+
 h1 {
   font-family: 'Lato', sans-serif;
   font-weight:1000;
   letter-spacing: 1px;
   font-size:30px;
   color: white;
+}
+
+.content p,
+.content h1 {
+  color: black;
 }
 
 @media only screen and (min-width: 1023px) {
