@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "personal_site"
+  "defaultProject": "personal_site",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
