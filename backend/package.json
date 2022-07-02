@@ -1,0 +1,11 @@
+{
+  "name": "personal_site_backend",
+  "version": "1.0.0",
+  "description": "backend for my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Connor Nolan",
+  "license": "ISC"
+}
