@@ -7,5 +7,8 @@
     "test": "test"
   },
   "author": "Connor Nolan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
