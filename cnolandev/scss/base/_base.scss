@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  // defines the size of 1rem (100% = 16px)
+  font-size: 62.5%; // 1rem = 10px (10/16 = 0.625)
+  font-family: "Montserrat";
+}
+
+body {
+  background-color: $color-primary-1;
+}

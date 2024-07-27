@@ -1,0 +1,66 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    // text-align: center;
+    width: 100%;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--main {
+      position: relative;
+      width: fit-content;
+      text-align: center;
+
+      &--svg {
+        width: 90rem;
+        z-index: 4;
+      }
+
+      &--slide {
+        position: absolute;
+        top: 1%;
+
+        width: 100%;
+        height: 95%;
+
+        background-size: 32%;
+        background-clip: content-box;
+        background-repeat: no-repeat;
+        background-position: 47% 25%;
+        z-index: -1;
+      }
+    }
+
+    &--sub {
+      margin-top: 1rem;
+      padding-right: 3rem;
+      height: 4rem;
+      font-size: $font-size-7;
+    }
+  }
+
+  &__ticker {
+    width: 100%;
+    flex: 0 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    &--container {
+      height: 100%;
+      width: 40rem;
+      background-color: $color-text-1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.3rem / 50%;
+    }
+  }
+}
