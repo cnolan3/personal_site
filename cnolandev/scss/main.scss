@@ -1,5 +1,8 @@
 @import "./abstracts/variables";
 
+@import "./base/base";
+@import "./base/typography";
+
 @import "./components/ticker";
 @import "./components/downChevron";
 @import "./components/grid";
@@ -9,5 +12,4 @@
 @import "./layout/main";
 @import "./layout/infoSection";
 @import "./layout/portfolioInfoSection";
-
-@import "./base/base";
+@import "./layout/aboutMeInfoSection";

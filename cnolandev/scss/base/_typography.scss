@@ -1,0 +1,23 @@
+.heading {
+  &__secondary {
+    font-size: $font-size-8;
+    font-style: italic;
+  }
+
+  &__tertiary {
+    font-size: $font-size-7;
+    font-style: italic;
+  }
+}
+
+.paragraph {
+  &__small {
+    text-align: left;
+    font-size: $font-size-5;
+  }
+
+  &__medium {
+    text-align: left;
+    font-size: $font-size-6;
+  }
+}

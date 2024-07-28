@@ -1,7 +1,5 @@
 .portfolio {
   &__heading {
-    font-size: $font-size-8;
-    font-style: italic;
     padding-bottom: 2rem;
     margin-bottom: 3rem;
     border-bottom: 1px solid $color-text-1;
@@ -66,12 +64,8 @@
   }
 
   &__title {
-    font-size: $font-size-6;
-    font-style: italic;
   }
 
   &__description {
-    text-align: left;
-    font-size: $font-size-5;
   }
 }
