@@ -46,8 +46,29 @@ function expandSection(element) {
   element.setAttribute("data-collapsed", "false");
 }
 
+// open the section
+function open(section) {
+  expandSection(section);
+  section.classList.add("open");
+}
+
+// close the section
+function close(section) {
+  collapseSection(
+    section,
+    section.querySelector(".info-section__title").clientHeight
+  );
+
+  // wait until the section is done collapsing to un-animate the title section
+  setTimeout(() => {
+    section.classList.remove("open");
+  }, 400);
+}
+
+// get all info sections
 const sections = document.querySelectorAll(".info-section");
 
+// add click events to all info section titles
 sections.forEach((section) => {
   section
     .querySelector(".info-section__title")
@@ -59,26 +80,13 @@ sections.forEach((section) => {
 
         if (title.id === this.id) {
           if (s.getAttribute("data-collapsed") === "true") {
-            expandSection(s);
-            s.classList.add("open");
+            open(s);
           } else {
-            collapseSection(s, title.clientHeight);
-
-            // wait until the section is done collapsing to un-animate the title section
-            setTimeout(() => {
-              console.log("remove open");
-              s.classList.remove("open");
-            }, 400);
+            close(s);
           }
         } else {
           if (s.getAttribute("data-collapsed") === "false") {
-            collapseSection(s, title.clientHeight);
-
-            // wait until the section is done collapsing to un-animate the title section
-            setTimeout(() => {
-              console.log("remove close");
-              s.classList.remove("open");
-            }, 400);
+            close(s);
           }
         }
       });
