@@ -1,55 +1,87 @@
 .info-section {
-  max-width: 140rem;
+  width: 140rem;
   height: 10rem;
-  display: flex;
-  align-items: center;
   margin: 0 auto;
-  padding: 0 5rem;
   border-radius: 6px;
-
-  background-image: linear-gradient(
-    to right,
-    $color-primary-1 50%,
-    $color-text-1 50%
-  );
-  background-size: 200% 100%;
-
-  transition: all 0.3s 0.1s;
+  overflow: hidden;
+  transition: height 0.4s, box-shadow 0.4s, transform 0.4s;
+  background-color: $color-accent-1;
 
   &:not(:last-child) {
     margin-bottom: 3rem;
   }
 
-  &__heading {
-    flex: 0 0 20rem;
-    text-align: left;
-    font-size: $font-size-6;
-    font-style: italic;
+  &__title {
+    height: 10rem;
+    width: 100%;
+    padding: 0 5rem;
+    display: flex;
+    align-items: center;
+    // border-radius: 6px;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-1 50%,
+      $color-text-1 50%
+    );
+    background-size: 200% 100%;
 
-    color: $color-text-1;
-    transition: all 0.3s;
+    transition: background-position 0.3s 0.1s;
+
+    &--heading {
+      flex: 0 0 20rem;
+      text-align: left;
+      font-size: $font-size-6;
+      font-style: italic;
+
+      color: $color-text-1;
+      transition: color 0.3s;
+    }
+
+    &--line {
+      flex: auto;
+      border: none;
+      border-top: 2px solid;
+      border-color: $color-text-1;
+      transition: border-color 0.3s;
+    }
+
+    &:hover {
+      background-position: -100% 0;
+      transition: background-position 0.3s;
+    }
+
+    &:hover &--heading {
+      color: $color-background-1;
+      transition: color 0.3s 0.1;
+    }
+
+    &:hover &--line {
+      border-color: $color-background-1;
+      transition: border-color 0.3s 0.1s;
+    }
   }
 
-  &__line {
-    flex: auto;
-    border: none;
-    border-top: 2px solid $color-text-1;
-    transition: all 0.3s;
+  &__content {
+    margin: 3rem;
   }
 
-  &:hover {
+  &.open {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba($color-text-1, 0.3);
+  }
+
+  &.open &__title {
     background-position: -100% 0;
-    transition: all 0.3s;
-    // background-color: $color-text-1;
-  }
+    transition: background-position 0.3s;
 
-  &:hover &__heading {
-    color: $color-background-1;
-    transition: all 0.3s 0.1;
-  }
+    &--heading {
+      color: $color-background-1;
+      transition: color 0.3s 0.1;
+    }
 
-  &:hover &__line {
-    border-top: 2px solid $color-background-1;
-    transition: all 0.3s 0.1s;
+    &--line {
+      border-color: $color-background-1;
+      transition: border-color 0.3s 0.1s;
+    }
   }
 }

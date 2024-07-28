@@ -31,6 +31,9 @@ let slideArray = [
   },
 ];
 
+const heroSub = document.getElementById("hero_sub");
+const heroSlide = document.getElementById("hero_slide");
+
 // preload all slide images
 slideArray = slideArray.map((slide) => {
   const newImg = new Image();
@@ -42,10 +45,7 @@ slideArray = slideArray.map((slide) => {
 
 let index = 0;
 
-export default function changeSlide() {
-  const heroSub = document.getElementById("hero_sub");
-  const heroSlide = document.getElementById("hero_slide");
-
+function changeSlide() {
   heroSub.innerHTML = slideArray[index].sub;
   heroSub.style.fontFamily = slideArray[index].font;
   heroSub.style.fontStyle = slideArray[index].fontStyle;
@@ -55,3 +55,6 @@ export default function changeSlide() {
 
   index = index < slideArray.length - 1 ? index + 1 : 0;
 }
+
+changeSlide();
+setInterval(changeSlide, 1000);
