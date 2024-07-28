@@ -1,0 +1,22 @@
+.social-icon {
+  display: inline-block;
+  height: 100%;
+  width: 110%;
+  background-color: $color-text-1;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $color-background-1;
+    transform: scale(1.2);
+  }
+
+  &__github {
+    mask: url(/logo-github.svg);
+    mask-size: cover;
+  }
+
+  &__linkedin {
+    mask: url(/logo-linkedin.svg);
+    mask-size: cover;
+  }
+}

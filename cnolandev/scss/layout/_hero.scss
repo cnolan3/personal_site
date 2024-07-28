@@ -61,6 +61,17 @@
     }
   }
 
+  &__socials {
+    flex: 0 0 3rem;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    &--link {
+      width: fit-content;
+    }
+  }
+
   &__down {
     width: fit-content;
     flex: 0 0 3rem;
