@@ -1,10 +1,12 @@
 @import "./abstracts/variables";
 
+@import "./components/ticker";
+@import "./components/downChevron";
+@import "./components/grid";
+
 @import "./layout/hero";
 @import "./layout/main";
-
-@import "./components/ticker";
-@import "./components/infoSection";
-@import "./components/downChevron";
+@import "./layout/infoSection";
+@import "./layout/portfolioInfoSection";
 
 @import "./base/base";

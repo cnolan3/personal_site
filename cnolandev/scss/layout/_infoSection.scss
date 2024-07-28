@@ -1,10 +1,10 @@
 .info-section {
-  width: 140rem;
+  max-width: 140rem;
   height: 10rem;
   margin: 0 auto;
   border-radius: 6px;
   overflow: hidden;
-  transition: height 0.4s, box-shadow 0.4s, transform 0.4s;
+  transition: height 0.4s, box-shadow 0.4s;
   background-color: $color-accent-1;
 
   &:not(:last-child) {
@@ -17,7 +17,6 @@
     padding: 0 5rem;
     display: flex;
     align-items: center;
-    // border-radius: 6px;
     background-image: linear-gradient(
       to right,
       $color-primary-1 50%,
@@ -62,11 +61,12 @@
   }
 
   &__content {
-    margin: 3rem;
+    color: $color-text-1;
+    margin: 5rem;
+    text-align: center;
   }
 
   &.open {
-    transform: translateY(-1rem);
     box-shadow: 0 1rem 2rem rgba($color-text-1, 0.3);
   }
 
@@ -76,12 +76,24 @@
 
     &--heading {
       color: $color-background-1;
-      transition: color 0.3s 0.1;
+      transition: color 0.3s 0.1s;
     }
 
     &--line {
       border-color: $color-background-1;
       transition: border-color 0.3s 0.1s;
+    }
+  }
+
+  &.close &__title {
+    transition: background-position 0.3s 0.3s;
+
+    &--heading {
+      transition: color 0.3s 0.3s;
+    }
+
+    &--line {
+      transition: border-color 0.3s 0.3s;
     }
   }
 }

@@ -1,0 +1,77 @@
+.portfolio {
+  &__heading {
+    font-size: $font-size-8;
+    font-style: italic;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid $color-text-1;
+  }
+}
+
+.project {
+  &__photos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55rem;
+    gap: 1rem;
+
+    &--rel {
+      height: 10rem;
+      width: 10rem;
+      position: relative;
+    }
+  }
+
+  &__photo {
+    box-shadow: 0 1rem 2rem rgba($color-text-1, 0.5);
+    z-index: 1;
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 1rem 3rem rgba($color-text-1, 0.3);
+      transform: translateY(-1rem) scale(1.2);
+      z-index: 5;
+    }
+
+    &--AML {
+      position: absolute;
+      height: 45rem;
+
+      &-1 {
+        top: -21rem;
+        left: -21rem;
+        z-index: 3;
+      }
+
+      &-2 {
+        top: -18rem;
+        left: -6rem;
+        z-index: 2;
+      }
+
+      &-3 {
+        top: -15rem;
+        left: 9rem;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  &__title {
+    font-size: $font-size-6;
+    font-style: italic;
+  }
+
+  &__description {
+    text-align: left;
+    font-size: $font-size-5;
+  }
+}

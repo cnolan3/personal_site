@@ -56,20 +56,29 @@ sections.forEach((section) => {
 
       sections.forEach((s) => {
         const title = s.querySelector(".info-section__title");
-        console.log(title.clientHeight);
 
         if (title.id === this.id) {
           if (s.getAttribute("data-collapsed") === "true") {
-            s.classList.add("open");
             expandSection(s);
+            s.classList.add("open");
           } else {
-            s.classList.remove("open");
             collapseSection(s, title.clientHeight);
+
+            // wait until the section is done collapsing to un-animate the title section
+            setTimeout(() => {
+              console.log("remove open");
+              s.classList.remove("open");
+            }, 400);
           }
         } else {
           if (s.getAttribute("data-collapsed") === "false") {
-            s.classList.remove("open");
             collapseSection(s, title.clientHeight);
+
+            // wait until the section is done collapsing to un-animate the title section
+            setTimeout(() => {
+              console.log("remove close");
+              s.classList.remove("open");
+            }, 400);
           }
         }
       });
