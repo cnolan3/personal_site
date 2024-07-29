@@ -32,9 +32,58 @@
       z-index: 5;
     }
 
+    &--imas {
+      position: absolute;
+      height: 21rem;
+      border-radius: 4px;
+
+      &-1 {
+        top: -15rem;
+        left: -23rem;
+        z-index: 2;
+      }
+
+      &-2 {
+        top: 1rem;
+        left: -3rem;
+        z-index: 1;
+      }
+    }
+
+    &--instore {
+      position: absolute;
+      height: 45rem;
+      border-radius: 10px;
+
+      &-1 {
+        top: -20rem;
+        left: -13rem;
+        z-index: 2;
+      }
+
+      &-2 {
+        top: -14rem;
+        left: 2rem;
+        z-index: 1;
+      }
+    }
+
+    &--dashcart {
+      position: absolute;
+      height: 25rem;
+      border-radius: 4px;
+
+      &-1 {
+        top: -8rem;
+        left: -19rem;
+        z-index: 2;
+      }
+    }
+
     &--AML {
       position: absolute;
       height: 45rem;
+      border-radius: 10px;
 
       &-1 {
         top: -21rem;

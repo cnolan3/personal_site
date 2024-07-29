@@ -24,7 +24,7 @@
     );
     background-size: 200% 100%;
 
-    transition: background-position 0.3s 0.1s;
+    transition: background-position 0.3s 0.07s;
 
     &--heading {
       flex: 0 0 20rem;
@@ -33,7 +33,7 @@
       font-style: italic;
 
       color: $color-text-1;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     &--line {
@@ -41,7 +41,7 @@
       border: none;
       border-top: 2px solid;
       border-color: $color-text-1;
-      transition: border-color 0.3s;
+      transition: border-color 0.2s;
     }
 
     &:hover {
@@ -51,12 +51,12 @@
 
     &:hover &--heading {
       color: $color-background-1;
-      transition: color 0.3s 0.1;
+      transition: color 0.2s 0.1;
     }
 
     &:hover &--line {
       border-color: $color-background-1;
-      transition: border-color 0.3s 0.1s;
+      transition: border-color 0.2s 0.1s;
     }
   }
 
