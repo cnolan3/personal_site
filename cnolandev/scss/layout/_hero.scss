@@ -69,6 +69,10 @@
 
     &--link {
       width: fit-content;
+
+      & .social-icon {
+        width: 3rem;
+      }
     }
   }
 

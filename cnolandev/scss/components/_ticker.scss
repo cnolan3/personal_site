@@ -26,11 +26,11 @@
   overflow: hidden;
   animation: marquee 6s linear infinite;
   display: inline-block;
-}
 
-span {
-  padding: 0 1.2rem;
-  /* to give a gap between messages */
+  & span {
+    padding: 0 1.2rem;
+    /* to give a gap between messages */
+  }
 }
 
 @keyframes marquee {
