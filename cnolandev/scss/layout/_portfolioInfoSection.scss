@@ -116,5 +116,13 @@
   }
 
   &__description {
+    &--link {
+      &:link,
+      &:visited {
+        font-size: $font-size-5;
+        font-weight: $font-weight-2;
+        color: $color-text-1;
+      }
+    }
   }
 }
