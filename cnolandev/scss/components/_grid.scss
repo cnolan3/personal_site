@@ -3,8 +3,16 @@
   column-gap: 3rem;
   row-gap: 6rem;
 
+  @include respond-tab-port {
+    row-gap: 2rem;
+  }
+
   &__2-cols {
     grid-template-columns: repeat(2, 1fr);
+
+    @include respond-tab-port {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__3-cols {

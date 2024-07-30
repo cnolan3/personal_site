@@ -7,6 +7,14 @@
   &__paragraph {
     margin-bottom: 2rem;
     padding: 0 10rem;
+
+    @include respond-tab-land {
+      padding: 0 4rem;
+    }
+
+    @include respond-phone {
+      padding: 0 1rem;
+    }
   }
 
   &__cta {

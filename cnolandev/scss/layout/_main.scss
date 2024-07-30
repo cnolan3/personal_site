@@ -1,4 +1,8 @@
 .main {
   width: 100%;
   padding: 10rem 5rem;
+
+  @include respond-phone {
+    padding: 10rem 2rem;
+  }
 }

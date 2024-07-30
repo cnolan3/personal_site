@@ -4,6 +4,10 @@
     flex-direction: column;
     padding: 0 5rem;
     margin-top: 10rem;
+
+    @include respond-tab-land {
+      padding: 0 2rem;
+    }
   }
 
   &__item {
@@ -42,6 +46,14 @@
 
       &:not(:last-child) {
         margin-bottom: 8rem;
+      }
+
+      @include respond-tab-port {
+        padding: 3rem 3rem;
+      }
+
+      @include respond-phone {
+        padding: 3rem 1rem;
       }
     }
   }

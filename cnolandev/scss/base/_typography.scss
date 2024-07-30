@@ -2,16 +2,36 @@
   &__secondary {
     font-size: $font-size-8;
     font-style: italic;
+
+    @include respond-phone {
+      font-size: $font-size-6;
+    }
   }
 
   &__tertiary {
     font-size: $font-size-7;
     font-style: italic;
+
+    @include respond-tab-land {
+      font-size: $font-size-6;
+    }
+
+    @include respond-phone {
+      font-size: $font-size-5;
+    }
   }
 
   &__four {
     font-size: $font-size-5;
     font-style: italic;
+
+    @include respond-tab-land {
+      font-size: $font-size-4;
+    }
+
+    @include respond-phone {
+      font-size: $font-size-3;
+    }
   }
 }
 
@@ -24,5 +44,9 @@
   &__medium {
     text-align: left;
     font-size: $font-size-6;
+
+    @include respond-phone {
+      font-size: $font-size-5;
+    }
   }
 }

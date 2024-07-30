@@ -4,6 +4,10 @@
     // height: 50rem;
     margin-top: 10rem;
     padding: 0 20rem;
+
+    @include respond-tab-land {
+      padding: 0 10rem;
+    }
   }
 
   &__socials {
@@ -30,6 +34,10 @@
 
   &__social-box {
     flex: 0 0 30rem;
+
+    @include respond-tab-port {
+      margin-bottom: 3rem;
+    }
   }
 
   &__email {

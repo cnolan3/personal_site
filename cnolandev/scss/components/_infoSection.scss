@@ -34,6 +34,10 @@
 
       color: $color-text-1;
       transition: color 0.2s;
+
+      @include respond-tab-port {
+        flex: 0 0 15rem;
+      }
     }
 
     &--line {

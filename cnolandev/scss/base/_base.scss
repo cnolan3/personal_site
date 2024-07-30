@@ -11,6 +11,22 @@ html {
   font-size: 62.5%; // 1rem = 10px (10/16 = 0.625)
   font-family: "Montserrat";
   scroll-behavior: smooth;
+
+  @include respond-tab-land {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include respond-tab-port {
+    font-size: 50%; // 1rem = 8px
+  }
+
+  @include respond-phone {
+    font-size: 43.75%; // 1rem = 7px;
+  }
+
+  @include respond-big-desktop {
+    font-size: 75%; // 1rem = 12px
+  }
 }
 
 body {

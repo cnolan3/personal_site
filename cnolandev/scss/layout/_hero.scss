@@ -21,6 +21,18 @@
       &--svg {
         width: 100rem;
         z-index: 4;
+
+        @include respond-tab-land {
+          width: 80rem;
+        }
+
+        @include respond-tab-port {
+          width: 65rem;
+        }
+
+        @include respond-phone {
+          width: 50rem;
+        }
       }
 
       &--slide {
