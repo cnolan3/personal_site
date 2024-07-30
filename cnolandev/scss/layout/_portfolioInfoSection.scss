@@ -28,6 +28,24 @@
       &:nth-child(8) {
         grid-row: 7;
       }
+
+      &--imas {
+        height: 40rem;
+      }
+
+      &--instore {
+        height: 50rem;
+      }
+
+      &--dashcart {
+        height: 30rem;
+      }
+    }
+
+    @include respond-phone {
+      &--imas {
+        height: 30rem;
+      }
     }
   }
 
@@ -241,6 +259,10 @@
       &:nth-child(7) {
         grid-row: 8;
       }
+
+      &:not(:last-child) {
+        margin-bottom: 5rem;
+      }
     }
   }
 
@@ -251,6 +273,8 @@
     &--link {
       &:link,
       &:visited {
+        margin-top: 2rem;
+        display: block;
         font-size: $font-size-5;
         font-weight: $font-weight-2;
         color: $color-text-1;
