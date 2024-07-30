@@ -1,0 +1,103 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    // text-align: center;
+    width: 100%;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--main {
+      position: relative;
+      width: fit-content;
+      text-align: center;
+
+      &--svg {
+        width: 100rem;
+        z-index: 4;
+
+        @include respond-tab-land {
+          width: 80rem;
+        }
+
+        @include respond-tab-port {
+          width: 65rem;
+        }
+
+        @include respond-phone {
+          width: 50rem;
+        }
+      }
+
+      &--slide {
+        position: absolute;
+        top: 1%;
+
+        width: 100%;
+        height: 95%;
+
+        background-size: 32%;
+        background-clip: content-box;
+        background-repeat: no-repeat;
+        background-position: 47% 25%;
+        z-index: -1;
+      }
+    }
+
+    &--sub {
+      margin-top: 1rem;
+      padding-right: 3rem;
+      height: 4rem;
+      font-size: $font-size-7;
+    }
+  }
+
+  &__ticker {
+    flex: 0 0 3rem;
+    margin-bottom: 1.5rem;
+
+    &--container {
+      height: 100%;
+      width: 40rem;
+      background-color: $color-text-1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.8rem / 50%;
+    }
+  }
+
+  &__socials {
+    flex: 0 0 3rem;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    &--link {
+      width: fit-content;
+
+      & .social-icon {
+        width: 3rem;
+      }
+    }
+  }
+
+  &__down {
+    width: fit-content;
+    flex: 0 0 3rem;
+    margin-bottom: 1.5rem;
+
+    &--link {
+      &:link,
+      &:visited {
+        height: fit-content;
+      }
+    }
+  }
+}

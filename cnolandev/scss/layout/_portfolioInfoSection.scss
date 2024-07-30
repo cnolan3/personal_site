@@ -1,0 +1,260 @@
+.portfolio {
+  &__heading {
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid $color-text-1;
+  }
+}
+
+.project {
+  &__photos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55rem;
+    gap: 1rem;
+
+    &--rel {
+      height: 10rem;
+      width: 10rem;
+      position: relative;
+    }
+
+    @include respond-tab-port {
+      &:nth-child(4) {
+        grid-row: 3;
+      }
+
+      &:nth-child(8) {
+        grid-row: 7;
+      }
+    }
+  }
+
+  &__photo {
+    box-shadow: 0 1rem 2rem rgba($color-text-1, 0.5);
+    z-index: 1;
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 1rem 3rem rgba($color-text-1, 0.3);
+      transform: translateY(-1rem) scale(1.2);
+      z-index: 5;
+    }
+
+    &--imas {
+      position: absolute;
+      height: 20rem;
+      border-radius: 4px;
+
+      @include respond-tab-land {
+        height: 14rem;
+      }
+
+      @include respond-tab-port {
+        height: 21rem;
+      }
+
+      @include respond-phone {
+        height: 16rem;
+      }
+
+      &-1 {
+        top: -15rem;
+        left: -21rem;
+        z-index: 2;
+
+        @include respond-tab-land {
+          top: -8rem;
+          left: -15rem;
+        }
+
+        @include respond-tab-port {
+          top: -12rem;
+          left: -22rem;
+        }
+
+        @include respond-phone {
+          top: -5rem;
+          left: -12rem;
+        }
+      }
+
+      &-2 {
+        top: 0;
+        left: -5rem;
+        z-index: 1;
+
+        @include respond-tab-land {
+          top: 1rem;
+          left: -2rem;
+        }
+
+        @include respond-tab-port {
+          top: 1rem;
+          left: -5rem;
+        }
+      }
+    }
+
+    &--instore {
+      position: absolute;
+      height: 45rem;
+      border-radius: 10px;
+
+      @include respond-tab-port {
+        height: 40rem;
+      }
+
+      &-1 {
+        top: -20rem;
+        left: -13rem;
+        z-index: 2;
+
+        @include respond-tab-land {
+          top: -17rem;
+          left: -11rem;
+        }
+      }
+
+      &-2 {
+        top: -14rem;
+        left: 2rem;
+        z-index: 1;
+
+        @include respond-tab-land {
+          top: -12rem;
+          left: 1rem;
+        }
+      }
+    }
+
+    &--dashcart {
+      position: absolute;
+      height: 21rem;
+      border-radius: 4px;
+
+      @include respond-tab-land {
+        height: 18rem;
+      }
+
+      @include respond-tab-port {
+        height: 23rem;
+      }
+
+      @include respond-phone {
+        height: 18rem;
+      }
+
+      &-1 {
+        top: -6rem;
+        left: -17rem;
+        z-index: 2;
+
+        @include respond-tab-land {
+          top: -4rem;
+          left: -15rem;
+        }
+
+        @include respond-tab-port {
+          top: -4rem;
+          left: -19rem;
+        }
+
+        @include respond-phone {
+          top: -2rem;
+          left: -13rem;
+        }
+      }
+    }
+
+    &--AML {
+      position: absolute;
+      height: 43rem;
+      border-radius: 10px;
+
+      @include respond-tab-land {
+        height: 38rem;
+      }
+
+      &-1 {
+        top: -21rem;
+        left: -19rem;
+        z-index: 3;
+
+        @include respond-tab-land {
+          top: -21rem;
+          left: -14rem;
+        }
+
+        @include respond-tab-port {
+          top: -16rem;
+          left: -14rem;
+        }
+      }
+
+      &-2 {
+        top: -18rem;
+        left: -5rem;
+        z-index: 2;
+
+        @include respond-tab-land {
+          top: -18rem;
+          left: -3rem;
+        }
+
+        @include respond-tab-port {
+          top: -13rem;
+          left: -3rem;
+        }
+      }
+
+      &-3 {
+        top: -15rem;
+        left: 9rem;
+        z-index: 1;
+
+        @include respond-tab-land {
+          top: -15rem;
+          left: 8rem;
+        }
+
+        @include respond-tab-port {
+          top: -10rem;
+          left: 8rem;
+        }
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+
+    @include respond-tab-port {
+      &:nth-child(3) {
+        grid-row: 4;
+      }
+
+      &:nth-child(7) {
+        grid-row: 8;
+      }
+    }
+  }
+
+  &__title {
+  }
+
+  &__description {
+    &--link {
+      &:link,
+      &:visited {
+        font-size: $font-size-5;
+        font-weight: $font-weight-2;
+        color: $color-text-1;
+      }
+    }
+  }
+}

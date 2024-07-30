@@ -1,0 +1,44 @@
+.ticker {
+  // display: inline;
+  color: $color-background-1;
+  font-size: $font-size-5;
+  font-weight: Bold;
+  font-style: italic;
+  width: 35rem;
+  height: $font-size-5;
+  // text-align: center;
+  line-height: 1;
+  padding: 0 0.6rem;
+  // text-transform: uppercase;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15px,
+    black calc(100% - 15px),
+    transparent 100%
+  );
+}
+
+.msg {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 6s linear infinite;
+  display: inline-block;
+
+  & span {
+    padding: 0 1.2rem;
+    /* to give a gap between messages */
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
+    /* changed from 100% */
+  }
+}

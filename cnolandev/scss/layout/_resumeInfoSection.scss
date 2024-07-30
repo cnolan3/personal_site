@@ -1,0 +1,60 @@
+.resume {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+    margin-top: 10rem;
+
+    @include respond-tab-land {
+      padding: 0 2rem;
+    }
+  }
+
+  &__item {
+    &-heading {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      &--dates {
+        flex: 0 0 max-content;
+        text-align: right;
+      }
+
+      &--line {
+        flex: auto;
+        border: none;
+        border-top: 2px solid $color-text-1;
+        height: 0;
+      }
+
+      &--title-section {
+        flex: 0 0 max-content;
+      }
+
+      &--company {
+        text-align: left;
+      }
+
+      &--title {
+        text-align: left;
+      }
+    }
+
+    &-description {
+      padding: 3rem 10rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+
+      @include respond-tab-port {
+        padding: 3rem 3rem;
+      }
+
+      @include respond-phone {
+        padding: 3rem 1rem;
+      }
+    }
+  }
+}

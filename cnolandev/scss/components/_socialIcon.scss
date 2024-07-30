@@ -1,0 +1,39 @@
+.social {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: $color-text-1;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-background-1;
+
+    transform: scale(1.2);
+  }
+
+  &-icon {
+    display: inline-block;
+    height: 100%;
+    // width: 100%;
+    background-color: $color-text-1;
+    transition: background-color 0.2s;
+
+    &__github {
+      mask: url(/logo-github.svg);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+    }
+
+    &__linkedin {
+      mask: url(/logo-linkedin.svg);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+    }
+  }
+
+  &:hover &-icon {
+    background-color: $color-background-1;
+  }
+}

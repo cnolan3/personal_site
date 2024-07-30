@@ -1,0 +1,14 @@
+.down-chevron {
+  mask: url(/chevron-down-outline.svg);
+  mask-size: cover;
+  display: inline-block;
+  height: 5rem;
+  width: 5rem;
+  background-color: $color-text-1;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $color-background-1;
+    transform: scale(1.2);
+  }
+}
