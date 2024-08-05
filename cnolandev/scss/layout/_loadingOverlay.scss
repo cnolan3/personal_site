@@ -1,0 +1,70 @@
+@keyframes loaderSlide {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+.loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  width: 100%;
+  background-color: $color-primary-1;
+  transition: opacity 0.3s;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  &.off {
+    visibility: hidden;
+    display: none;
+  }
+
+  &__loader {
+    &-bar {
+      height: 4rem;
+      width: 20rem;
+      background-color: transparent;
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $color-text-1;
+        animation: 0.75s cubic-bezier(0.83, 0, 0.17, 1) 0s infinite loaderSlide
+          forwards;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $color-background-1;
+      font-size: $font-size-5;
+      font-weight: $font-weight-4;
+      letter-spacing: 3px;
+      z-index: 101;
+    }
+  }
+}

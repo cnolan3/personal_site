@@ -31,4 +31,10 @@ html {
 
 body {
   background-color: $color-primary-1;
+  position: relative;
+
+  &.loading {
+    height: 100svh;
+    // overflow: hidden;
+  }
 }

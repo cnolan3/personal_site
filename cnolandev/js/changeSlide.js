@@ -1,60 +1,55 @@
+import { imgArray } from "./loadPage";
+
 let slideArray = [
   {
     sub: "Limits",
     font: "arial",
     fontStyle: "normal",
-    image: "/andrea-leopardi-GV8eF1jJpSs-unsplash.webp",
+    imageName: "slide_1",
   },
   {
     sub: "Exceptions",
     font: "Times New Roman",
     fontStyle: "normal",
-    image: "/polina-kuzovkova-IuuqE8mGQiw-unsplash.webp",
+    imageName: "slide_2",
   },
   {
     sub: "Compromises",
     font: "Georgia",
     fontStyle: "italic",
-    image: "/alexandros-giannakakis-LXe_5LmxYCw-unsplash.webp",
+    imageName: "slide_3",
   },
   {
     sub: "Excuses",
     font: "Courier New",
     fontStyle: "italic",
-    image: "/samsung-memory-z1YJCZ-yV2Q-unsplash.webp",
+    imageName: "slide_4",
   },
   {
     sub: "Doubts",
     font: "Garamond",
     fontStyle: "normal",
-    image: "/tiago-ferreira-yjx7snQqyDs-unsplash.webp",
+    imageName: "slide_5",
   },
 ];
 
 const heroSub = document.getElementById("hero_sub");
 const heroSlide = document.getElementById("hero_slide");
 
-// preload all slide images
-slideArray = slideArray.map((slide) => {
-  const newImg = new Image();
-  newImg.src = slide.image;
-  return { ...slide, image: newImg };
-});
-
-// console.log(JSON.stringify(slideArray));
-
 let index = 0;
 
-function changeSlide() {
+// console.log(imgArray);
+
+export default function changeSlide(imgObjs) {
   heroSub.innerHTML = slideArray[index].sub;
   heroSub.style.fontFamily = slideArray[index].font;
   heroSub.style.fontStyle = slideArray[index].fontStyle;
 
-  // console.log(slideArray[index].image.src);
-  heroSlide.style.backgroundImage = `url(${slideArray[index].image.src})`;
+  const imgSrc = imgArray.find(
+    (img) => img.name === slideArray[index].imageName
+  ).src;
+
+  heroSlide.style.backgroundImage = `url(${imgSrc})`;
 
   index = index < slideArray.length - 1 ? index + 1 : 0;
 }
-
-changeSlide();
-setInterval(changeSlide, 1000);
