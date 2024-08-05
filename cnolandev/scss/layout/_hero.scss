@@ -18,6 +18,19 @@
       width: fit-content;
       text-align: center;
 
+      &--mask {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 95%;
+        width: 95%;
+        overflow: hidden;
+        z-index: -1;
+
+        background-color: transparent;
+      }
+
       &--svg {
         width: 100rem;
         z-index: 4;
@@ -37,16 +50,17 @@
 
       &--slide {
         position: absolute;
-        top: 1%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-54%, -43%);
+        width: 32%;
+        height: auto;
+        z-index: -2;
+        visibility: hidden;
 
-        width: 100%;
-        height: 95%;
-
-        background-size: 32%;
-        background-clip: content-box;
-        background-repeat: no-repeat;
-        background-position: 47% 25%;
-        z-index: -1;
+        &.show {
+          visibility: visible;
+        }
       }
     }
 
